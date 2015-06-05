@@ -1,31 +1,4 @@
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <ctime>
-#include <vector>
-#include <iomanip>
-
-using namespace std;
-
-struct MaxMin {
-	unsigned int min;
-	unsigned int max;
-};
-struct Weapon
-{
-	char *namn;
-	MaxMin attackpoäng;
-};
-struct Highscore
-{
-	string namn;
-	unsigned int poäng;
-};
-
-void addNamn(vector<Highscore> *highscore);
-void displayLista(vector<Highscore> *highscore);
-void bubelSortHighscore(vector<Highscore> *highscore);
-void ramdomFunc();
+#include "main.h"
 
 int main()
 {
@@ -94,11 +67,38 @@ void displayLista(vector<Highscore> *highscore) {
 			<< right << setw(numWidth) << setfill(separator) << (*highscore)[i].poäng << endl;
 	}
 }
-void ramdomFunc() {
+int ramdomFunc() {
 	srand(static_cast<unsigned int>(time(0)));  // seed random number generator based on current time
 
 	int randomNumber = rand(); // generate random number
 
-	int die = (randomNumber % 6) + 1; // get a number between 1 and 6
-	cout << "You rolled a " << die << endl;
+	int die = (randomNumber % 60) + 1; // get a number between 1 and 6
+	return die;
+}
+
+/*
+Steg B) 
+ Börja med att fylla i värdena för attackpoängen. 
+Dessa värden ska slumpas ut, intervall får du välja själv. Vapnets namn ska skapas på ett 
+speciellt sätt. Namnet ska bestå av tre delar: 1. Ett adjektiv, t.ex. "Divine ","Ultimate ",
+"Dodgy " eller "Spiked " (hitta på själv!) 2. En vapentyp, t.ex. "Blade ","Club " eller "Axe " 
+(hitta på själv!) 3. En 'subtitel', t.ex. "of Doom", "of the Wind" eller "of the Phoenix" 
+(hitta på själv!) Namnet bildas sedan genom att man tar en slumpad sträng från första listan, 
+en slumpad sträng från andra listan, och till sist en slumpad sträng från tredje listan. Om man 
+t.ex. tar den första strängen från varje lista så får man "Divine Blade of Doom". Strängen som 
+ska hålla vapnets namn ska vara en char-pekare allokeras med operatorn 'new', så att den bara tar 
+upp precis så mycket minne som behövs.*/
+
+Weapon* createWeapon() {
+	/*
+	Funktionen ska alltså dynamiskt skapa (med new) en struct av typen Weapon, fylla den med
+	information, och returnera pekaren till structen.
+	*/
+	Weapon newWeapon;
+	newWeapon.namn = "Test";
+	newWeapon.attackpoäng.max = ramdomFunc();
+	newWeapon.attackpoäng.min = ramdomFunc();
+
+	return &newWeapon;
+
 }
