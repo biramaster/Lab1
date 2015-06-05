@@ -80,7 +80,6 @@ int ramdomFunc() {
 	int die = (randomNumber % 60) + 1; // get a number between 1 and 6
 	return die;
 }
-
 void displayWeapons(vector<Weapon> *weapons) {
 	const char separator = ' ';
 	const int nameWidth = 18;
@@ -119,6 +118,13 @@ Weapon* createWeapon() {
 	information, och returnera pekaren till structen.
 	*/
 	Weapon *newWeapon = new Weapon();
+
+	/*
+	Namnet ska bestå av tre delar: 
+	1. Ett adjektiv, t.ex. "Divine ","Ultimate ","Dodgy " eller "Spiked " (hitta på själv!) 
+	2. En vapentyp, t.ex. "Blade ","Club " eller "Axe " (hitta på själv!) 
+	3. En 'subtitel', t.ex. "of Doom", "of the Wind" eller "of the Phoenix"
+	*/
 	newWeapon->namn = "Test";
 	newWeapon->attackpoäng.max = ramdomFunc();
 	newWeapon->attackpoäng.min = ramdomFunc();
