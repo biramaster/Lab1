@@ -40,3 +40,4 @@ Steg B)
 Skriv en funktion som skapar ett vapen. Funktionen ska ha följande form: 
 Weapon* createWeapon(); */
 Weapon* createWeapon();
+void displayWeapons(vector<Weapon> *weapons);
