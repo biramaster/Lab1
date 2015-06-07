@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cstring>
 #include <string>
 #include <cstdlib>
 #include <ctime>
@@ -7,6 +8,10 @@
 #include <iomanip>
 
 using namespace std;
+
+string adjectiv[4] = { "Divine ", "Ultimate ", "Dodgy ", "Spiked " };
+string vapentyp[3] = { "Blade ", "Club ", "Axe " };
+string subtitle[3] = { "of Doom", "of the Wind", "of the Phoenix" };
 
 /*
 Steg A) 
@@ -25,6 +30,9 @@ struct Weapon
 	char *namn;
 	MaxMin attackpoäng;
 };
+
+
+
 struct Highscore
 {
 	string namn;

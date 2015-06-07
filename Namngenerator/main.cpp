@@ -14,7 +14,7 @@ int main()
 		addNamn(&myLista);
 		bubelSortHighscore(&myLista);
 		displayLista(&myLista);
-			
+
 		weapons.push_back((*weapon));
 		displayWeapons(&weapons);
 
@@ -72,14 +72,17 @@ void displayLista(vector<Highscore> *highscore) {
 			<< right << setw(numWidth) << setfill(separator) << (*highscore)[i].poäng << endl;
 	}
 }
-int ramdomFunc() {
+int ramdomFunc(int max) {
 	srand(static_cast<unsigned int>(time(0)));  // seed random number generator based on current time
 
 	int randomNumber = rand(); // generate random number
 
-	int die = (randomNumber % 60) + 1; // get a number between 1 and 6
+	int die = (randomNumber % max) + 1; // get a number between 1 and 6
 	return die;
 }
+/*
+
+*/
 void displayWeapons(vector<Weapon> *weapons) {
 	const char separator = ' ';
 	const int nameWidth = 18;
@@ -120,14 +123,33 @@ Weapon* createWeapon() {
 	Weapon *newWeapon = new Weapon();
 
 	/*
-	Namnet ska bestå av tre delar: 
-	1. Ett adjektiv, t.ex. "Divine ","Ultimate ","Dodgy " eller "Spiked " (hitta på själv!) 
-	2. En vapentyp, t.ex. "Blade ","Club " eller "Axe " (hitta på själv!) 
+	Namnet ska bestå av tre delar:
+	1. Ett adjektiv, t.ex. "Divine ","Ultimate ","Dodgy " eller "Spiked " (hitta på själv!)
+	2. En vapentyp, t.ex. "Blade ","Club " eller "Axe " (hitta på själv!)
 	3. En 'subtitel', t.ex. "of Doom", "of the Wind" eller "of the Phoenix"
 	*/
-	newWeapon->namn = "Test";
-	newWeapon->attackpoäng.max = ramdomFunc();
-	newWeapon->attackpoäng.min = ramdomFunc();
+	
+
+	/*char *s1 = new char(*adjectiv[ramdomFunc(4)] + *vapentyp[ramdomFunc(3)] + *subtitle[ramdomFunc(3)]);*/
+
+	string s1 = adjectiv[ramdomFunc(4)];
+	s1 += vapentyp[ramdomFunc(3)];
+	s1 += subtitle[ramdomFunc(3)];
+	
+
+	newWeapon->namn = new char(s1.length()+1); 
+	//strcpy_s(newWeapon->namn, sizeof newWeapon->namn, s1.c_str());
+	//http://www.cplusplus.com/reference/string/string/c_str/
+
+	//strcpy_s(newWeapon->namn, sizeof s1, s1);
+	//strcpy_s(newWeapon->namn, sizeof newWeapon->namn, s1);
+	//strcat_s(newWeapon->namn, sizeof newWeapon->namn, s2);
+	//strcat_s(newWeapon->namn, sizeof newWeapon->namn, s3);
+	
+	/*(char*)malloc(sizeof(*s1));*/
+
+	newWeapon->attackpoäng.max = ramdomFunc(200);
+	newWeapon->attackpoäng.min = ramdomFunc(20);
 
 	return newWeapon;
 
