@@ -36,6 +36,7 @@ int main()
 		cout << "\nVill du mata in ett nytt namn (Y/N)? ";
 		getline(cin, done);
 	}
+
 	bubelSortHighscore(&higscore);
 	displayLista(&higscore);
 	showWeapons(&weapons);
