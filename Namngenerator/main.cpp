@@ -155,7 +155,7 @@ void showArmourInfo(Armour *armour)
 	cout << "==================================================" << endl;
 }
 
-void destroyWeapon(Armour *armour)
+void destroyArmour(Armour *armour)
 {
 	delete[] armour->namn;
 	delete armour;
@@ -169,7 +169,6 @@ int ramdomFunc(int max) {
 	int die = (randomNumber % max); // get a number between 0 and max
 	return die;
 }
-
 
 void bubelSortHighscore(vector<Highscore> *highscore)
 {
@@ -221,3 +220,40 @@ void displayLista(vector<Highscore> *highscore) {
 	}
 }
 
+Player* createPlayer(char *name, char *type, Weapon *w, Armour *a)
+{
+	/*
+	Steg H) Skriv en funktion som skapar en spelare. Funktionen ska ha följande form:
+	Player* createPlayer( char *name, char *type, Weapon *w, Armour *a ); Funktionen ska alltså
+	skapa en struct av typen Player (med new), fylla den med information, och returnera den.
+	Vapnet och rustningen skapas i main() och skickas till funktionen som parametrar. Namnet och
+	typen ska kopieras till nya strängar inuti structen Player.
+	*/
+
+	Player *player = new Player;
+	player->health = ramdomFunc(200);
+	
+	player->type = new char[strlen(type) + 1];
+	strcpy(player->type, type);
+
+	player->name = new char[strlen(name) + 1];
+	strcpy(player->name, name);
+
+	player->weapon = w;
+	player->armour = a;
+
+	return player;
+}
+
+void destroyWeapon(Player *player)
+{
+	/*
+	Steg I) Skriv en funktion som förstör (avallokerar allt minne som upptas av) en spelare.
+	Funktionen ska ha följande form: void destroyPlayer( Player *p ); Funktionen ska dock INTE
+	avallokera varken varken vapnet eller rustningen.
+	*/
+	delete[] player->name;
+	delete[] player->type; 
+	destroyWeapon(player->weapon);
+	destroyArmour(player->armour);
+}

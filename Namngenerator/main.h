@@ -34,6 +34,7 @@ void displayLista(vector<Highscore> *highscore);
 void bubelSortHighscore(vector<Highscore> *highscore);
 
 Armour* createArmour();
+void destroyArmour(Armour *armour);
 int ramdomFunc(int max);
 
 /*
@@ -63,3 +64,18 @@ void showWeaponInfo(Weapon *w);
 void destroyWeapon(Weapon *w);
 void showWeapons(vector<Weapon> *weapons);
 
+/*
+Steg G) Skapa en struct Player som innehåller information om en spelare. Spelaren ska ha ett namn, en typ 
+(t.ex. Paladin, Battlemage, Priest, Farmer, etc.), en hälsa (som representeras av ett tal), ett vapen och 
+en rustning. Namnet och typen ska kunna allokeras dynamiskt. Vapnet och rustningen ska representeras av 
+pekare till structar av typen Weapon och Armour.
+*/
+
+struct Player
+{
+	char * name;
+	char * type;
+	int health;
+	Weapon * weapon;
+	Armour * armour;
+};
