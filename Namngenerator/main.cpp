@@ -64,14 +64,15 @@ void showWeaponInfo(Weapon *w)
 
 }
 
-void destroyWeapon(Weapon *w)
+void destroyWeapon(Weapon *weapon)
 {
 	/*
 	Steg D) Skriv en funktion som förstör (avallokerar) ett vapen. Funktionen ska ha följande form:
 	void destroyWeapon( Weapon *w ); Funktionen ska avallokera allt minne som upptas av structen, d.v.s både namnet och
 	structen själv.
 	*/
-	delete w;
+	delete[] weapon->namn;
+	delete weapon;
 }
 
 void showWeapons(vector<Weapon> *weapons) {
@@ -116,7 +117,7 @@ Weapon* createWeapon() {
 	s1 += vapentyp[ramdomFunc(2)];
 	s1 += subtitle[ramdomFunc(2)];
 
-	newWeapon->namn = new char(s1.length() + 1);
+	newWeapon->namn = new char[s1.length() + 1];
 	strcpy(newWeapon->namn, s1.c_str());
 
 	//http://www.cplusplus.com/reference/string/string/c_str/
@@ -142,7 +143,7 @@ Armour* createArmour()
 	Armour *armour = new Armour;
 	armour->skydd = ramdomFunc(200);
 	string s1 = armourType[ramdomFunc(5)];
-	armour->namn = new char(s1.length() + 1);
+	armour->namn = new char[s1.length() + 1];
 	strcpy(armour->namn, s1.c_str());
 	return armour;
 }
@@ -152,11 +153,11 @@ void showArmourInfo(Armour *armour)
 	cout << "Armour namn :" << armour->namn << endl;
 	cout << "Attackpoängen max:" << armour->skydd << endl;
 	cout << "==================================================" << endl;
-
 }
 
 void destroyWeapon(Armour *armour)
 {
+	delete[] armour->namn;
 	delete armour;
 }
 
