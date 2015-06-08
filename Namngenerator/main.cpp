@@ -1,3 +1,13 @@
+//-------------------------------------------------------------------------------------
+// File name...................: main.cpp
+// Purpose.....................: 
+// Programmer..................: André Rubira
+// Date........................: 2015-06-05
+// Version.....................:
+// Changed.....................: 
+//--------------------------------------------------------------------------------------
+
+
 #include "main.h"
 
 int main()
@@ -5,22 +15,27 @@ int main()
 	locale swedish("swedish");
 	locale::global(swedish);
 
-	vector<Highscore> myLista;
+	vector<Highscore> higscore;
 	vector<Weapon> weapons;
 
 	string done = "Y";
+	Weapon *weapon;
 	while (done[0] != 'N') {
-		Weapon *weapon = createWeapon();
-		addNamn(&myLista);
-		bubelSortHighscore(&myLista);
-		displayLista(&myLista);
 
-		weapons.push_back((*weapon));
-		displayWeapons(&weapons);
+		// Highscore
+		addNamn(&higscore);
 
+		// Weapon creation
+		weapon = createWeapon();
+
+		weapons.push_back(*weapon);
+		
 		cout << "\nVill du mata in ett nytt namn (Y/N)? ";
 		getline(cin, done);
 	}
+	bubelSortHighscore(&higscore);
+	displayLista(&higscore);
+	displayWeapons(&weapons);
 	cout << "Done!YES!";
 	return 0;
 }
@@ -40,6 +55,7 @@ void bubelSortHighscore(vector<Highscore> *highscore)
 		}
 	}
 }
+
 void addNamn(vector<Highscore> *highscore) {
 	Highscore myscore;
 	string namn;
@@ -54,6 +70,7 @@ void addNamn(vector<Highscore> *highscore) {
 	cin.ignore(INT_MAX, '\n');
 	cin.clear();
 }
+
 void displayLista(vector<Highscore> *highscore) {
 	const char separator = ' ';
 	const int nameWidth = 18;
@@ -77,7 +94,7 @@ int ramdomFunc(int max) {
 
 	int randomNumber = rand(); // generate random number
 
-	int die = (randomNumber % max) + 1; // get a number between 1 and 6
+	int die = (randomNumber % max); // get a number between 0 and max
 	return die;
 }
 /*
@@ -98,7 +115,7 @@ void displayWeapons(vector<Weapon> *weapons) {
 	for (unsigned int i = 0; i < (*weapons).size(); i++)
 	{
 		cout << left << setw(nameWidth) << setfill(separator) << (*weapons)[i].namn
-			<< right << setw(numWidth) << setfill(separator) << (*weapons)[i].attackpoäng.max << endl;
+			<< right << setw(numWidth) << setfill(separator) << (*weapons)[i].attackpoang.max << endl;
 	}
 }
 
@@ -120,7 +137,7 @@ Weapon* createWeapon() {
 	Funktionen ska alltså dynamiskt skapa (med new) en struct av typen Weapon, fylla den med
 	information, och returnera pekaren till structen.
 	*/
-	Weapon *newWeapon = new Weapon();
+	Weapon *newWeapon = new Weapon;
 
 	/*
 	Namnet ska bestå av tre delar:
@@ -132,14 +149,14 @@ Weapon* createWeapon() {
 	string s1 = adjectiv[ramdomFunc(3)];
 	s1 += vapentyp[ramdomFunc(2)];
 	s1 += subtitle[ramdomFunc(2)];
-	
-	newWeapon->namn = new char(s1.length()+1); 
+
+	newWeapon->namn = new char(s1.length() + 1);
 	strcpy(newWeapon->namn, s1.c_str());
 
 	//http://www.cplusplus.com/reference/string/string/c_str/
 
-	newWeapon->attackpoäng.max = ramdomFunc(200);
-	newWeapon->attackpoäng.min = ramdomFunc(20);
+	newWeapon->attackpoang.max = ramdomFunc(200);
+	newWeapon->attackpoang.min = ramdomFunc(20);
 
 	return newWeapon;
 
