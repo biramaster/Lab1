@@ -85,7 +85,7 @@ int ramdomFunc(int max) {
 */
 void displayWeapons(vector<Weapon> *weapons) {
 	const char separator = ' ';
-	const int nameWidth = 18;
+	const int nameWidth = 30;
 	const int numWidth = 8;
 
 	cout << "======= WEAPONS =======" << endl;
@@ -128,25 +128,15 @@ Weapon* createWeapon() {
 	2. En vapentyp, t.ex. "Blade ","Club " eller "Axe " (hitta på själv!)
 	3. En 'subtitel', t.ex. "of Doom", "of the Wind" eller "of the Phoenix"
 	*/
+
+	string s1 = adjectiv[ramdomFunc(3)];
+	s1 += vapentyp[ramdomFunc(2)];
+	s1 += subtitle[ramdomFunc(2)];
 	
-
-	/*char *s1 = new char(*adjectiv[ramdomFunc(4)] + *vapentyp[ramdomFunc(3)] + *subtitle[ramdomFunc(3)]);*/
-
-	string s1 = adjectiv[ramdomFunc(4)];
-	s1 += vapentyp[ramdomFunc(3)];
-	s1 += subtitle[ramdomFunc(3)];
-	
-
 	newWeapon->namn = new char(s1.length()+1); 
-	//strcpy_s(newWeapon->namn, sizeof newWeapon->namn, s1.c_str());
-	//http://www.cplusplus.com/reference/string/string/c_str/
+	strcpy(newWeapon->namn, s1.c_str());
 
-	//strcpy_s(newWeapon->namn, sizeof s1, s1);
-	//strcpy_s(newWeapon->namn, sizeof newWeapon->namn, s1);
-	//strcat_s(newWeapon->namn, sizeof newWeapon->namn, s2);
-	//strcat_s(newWeapon->namn, sizeof newWeapon->namn, s3);
-	
-	/*(char*)malloc(sizeof(*s1));*/
+	//http://www.cplusplus.com/reference/string/string/c_str/
 
 	newWeapon->attackpoäng.max = ramdomFunc(200);
 	newWeapon->attackpoäng.min = ramdomFunc(20);
