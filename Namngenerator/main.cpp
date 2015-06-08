@@ -1,6 +1,6 @@
 //-------------------------------------------------------------------------------------
 // File name...................: main.cpp
-// Purpose.....................: 
+// Purpose.....................: Test the all methods
 // Programmer..................: André Rubira
 // Date........................: 2015-06-05
 // Version.....................:
@@ -83,6 +83,10 @@ void showWeapons(vector<Weapon> *weapons) {
 }
 
 Weapon* createWeapon() {
+	string adjectiv[4] = { "Divine ", "Ultimate ", "Dodgy ", "Spiked " };
+	string vapentyp[3] = { "Blade ", "Club ", "Axe " };
+	string subtitle[3] = { "of Doom", "of the Wind", "of the Phoenix" };
+
 	/*
 	Steg B)
 	Börja med att fylla i värdena för attackpoängen.
@@ -127,6 +131,7 @@ Weapon* createWeapon() {
 
 Armour* createArmour()
 {
+	string armourType[] = { "Bronze armour", "Iron armour", "Steel armour", "Elite black armour", "Rune armour", "Dragonstone armour" };
 	/*
 	Steg F) Skapa en struct Armour för att hålla reda på information om en rustning. Rustningen ska ha ett namn, och
 	en armour-class (som är ett tal som anger hur mycket skydd rustningen ger, d.v.s hur många attack-poäng från vapnet

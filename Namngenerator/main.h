@@ -18,12 +18,6 @@
 
 using namespace std;
 
-string armourType[] = { "Bronze armour", "Iron armour", "Steel armour", "Elite black armour", "Rune armour", "Dragonstone armour" };
-
-string adjectiv[4] = { "Divine ", "Ultimate ", "Dodgy ", "Spiked " };
-string vapentyp[3] = { "Blade ", "Club ", "Axe " };
-string subtitle[3] = { "of Doom", "of the Wind", "of the Phoenix" };
-
 struct Highscore
 {
 	string namn;
