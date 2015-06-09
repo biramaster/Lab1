@@ -19,6 +19,7 @@ int main()
 	string done = "Y";
 	// Set seed for random
 	srand(time(0));
+
 	// Create Weapons
 	Weapon *w = createWeapon();
 	destroyWeapon(w);

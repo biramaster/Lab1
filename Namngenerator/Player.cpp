@@ -47,8 +47,7 @@ void destroyPlayer(Player *player)
 	*/
 	delete[] player->name;
 	delete[] player->type;
-	destroyWeapon(player->weapon);
-	destroyArmour(player->armour);
+	delete player;
 }
 
 void showPlayerInfo(Player *p)
