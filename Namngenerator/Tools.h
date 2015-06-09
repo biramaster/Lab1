@@ -15,10 +15,5 @@
 #include <ctime>
 #include <vector>
 #include <iomanip>
-#include "Tools.h"
-#include "Highscore.h"
-#include "Weapon.h"
-#include "Armour.h"
 
-
-
+int ramdomFunc(int min, int max);

@@ -1,6 +1,6 @@
 #pragma once
 //-------------------------------------------------------------------------------------
-// File name...................: main.h
+// File name...................: Highscore.h
 // Purpose.....................: 
 // Programmer..................: André Rubira
 // Date........................: 2015-06-05
@@ -15,10 +15,16 @@
 #include <ctime>
 #include <vector>
 #include <iomanip>
-#include "Tools.h"
-#include "Highscore.h"
-#include "Weapon.h"
-#include "Armour.h"
+
+struct Highscore
+{
+	std::string namn;
+	unsigned int poäng;
+};
+
+void addNamn(std::vector<Highscore> *highscore);
+void displayLista(std::vector<Highscore> *highscore);
+void bubelSortHighscore(std::vector<Highscore> *highscore);
 
 
 

@@ -1,6 +1,6 @@
 #pragma once
 //-------------------------------------------------------------------------------------
-// File name...................: main.h
+// File name...................: Armour.h
 // Purpose.....................: 
 // Programmer..................: André Rubira
 // Date........................: 2015-06-05
@@ -16,9 +16,12 @@
 #include <vector>
 #include <iomanip>
 #include "Tools.h"
-#include "Highscore.h"
-#include "Weapon.h"
-#include "Armour.h"
 
+struct Armour {
+	char *namn;
+	unsigned int skydd;
+};
 
+Armour* createArmour();
+void destroyArmour(Armour *armour);
 
