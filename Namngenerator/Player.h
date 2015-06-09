@@ -36,7 +36,8 @@ struct Player
 };
 
 Player* createPlayer(char *name, char *type, Weapon *w, Armour *a);
+void destroyPlayer(Player *player);
 void showPlayerInfo(Player *p);
 void equipPlayerWeapon(Player *p, Weapon *w);
 void equipPlayerArmour(Player *p, Armour *a);
-void attack(Player *attacker, Player *victim);
+

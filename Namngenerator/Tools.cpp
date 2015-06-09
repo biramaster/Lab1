@@ -5,6 +5,6 @@ int ramdomFunc(int min, int max) {
 
 	int randomNumber = rand(); // generate random number
 
-	int die = (randomNumber % max) + min; // get a number between 0 and max
+	int die = (randomNumber % max) + min; // get a number between min and max
 	return die;
 }

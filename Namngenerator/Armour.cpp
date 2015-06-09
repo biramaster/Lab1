@@ -13,7 +13,7 @@ Armour* createArmour()
 	rustningen:
 	*/
 	Armour *armour = new Armour;
-	armour->skydd = ramdomFunc(0, 200);
+	armour->skydd = ramdomFunc(0, 20);
 	string s1 = armourType[ramdomFunc(0, 5)];
 	armour->namn = new char[s1.length() + 1];
 	strcpy(armour->namn, s1.c_str());

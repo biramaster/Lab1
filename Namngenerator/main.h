@@ -19,6 +19,8 @@
 #include "Highscore.h"
 #include "Weapon.h"
 #include "Armour.h"
+#include "Player.h"
+#include "Game.h"
 
 
 

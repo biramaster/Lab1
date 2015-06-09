@@ -38,7 +38,7 @@ Player* createPlayer(char *name, char *type, Weapon *w, Armour *a)
 	return player;
 }
 
-void destroyWeapon(Player *player)
+void destroyPlayer(Player *player)
 {
 	/*
 	Steg I) Skriv en funktion som förstör (avallokerar allt minne som upptas av) en spelare.
@@ -78,43 +78,3 @@ void equipPlayerWeapon(Player *p, Weapon *w)
 	p->weapon = w;
 }
 
-void attack(Player *attacker, Player *victim){
-
-	/*
-	Steg M) Skapa en funktion som låter en spelare attackera en annan. Funktionen ska ha följande form:
-	void attack( Player *attacker, Player *victim );
-
-	Funktionen ska fungera så här:
-
-	Först beräknas hur mycket skada den attackerande spelaren gör, genom att slumpa ut ett
-	värde i intervallen min - max (gränserna finns i den attackerande spelarens vapen).
-
-	Skadepoägen minskas med offrets rustningspoäng (armour class). Om skadepoängen är mindre än noll,
-	så sätt den till noll (spelaren gör ingen skada).
-
-	Skriv ut statistik för attacken:
-
-	vad den attackerande spelaren heter
-
-	vad han/hon har för typ
-
-	vapnets namn
-
-	hur mycket skada som spelaren ger
-
-	vad offret heter och har för typ
-
-	namnet på offrets rustning
-
-
-	Ett exempel på utskrift är:
-
-	Rapunzel the Battlemage wields the Divine Spoon of Pain against Moohaa the Paladin's Sucky
-	Helmet of Gold, and does 13 of damage. Moohaa has 18 hp left.
-
-	Minska offrets hälsopoäng med skadepoängen från vapnet
-
-	Om offrets hälsopoäng är mindre eller lika med noll, så dör offret.
-	Skriv ut en text som anger vem som dog i striden, och vem som vann (namnen på anfallaren och offret)
-	*/
-}
